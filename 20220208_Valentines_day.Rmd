@@ -1,0 +1,49 @@
+---
+title: "Valentines_day_2022"
+author: "karl kim"
+date: "2/8/2022"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+# Loading Library
+```{r}
+library(tidyverse)
+```
+
+# Creating dataframe
+```{r}
+Legend <- c("You","Everyone else", "Everyone else","Everyone else","Everyone else","Everyone else","Everyone else","Everyone else","Everyone else","Everyone else","Everyone else","Everyone else","Everyone else","Everyone else","Everyone else","Everyone else","Everyone else")
+x <- c(0.5, 3.3, 4.2,6,7,8,9,5.1,6.2,7.3,8.4,9.5,5.6,6.7,7.8,8.9,9.1)
+y <- c(10, 6.7, 8,2,3,4,5,6,7,7.5,2.6,3.2,4.7,5.8,6.2,6.4,5.5)
+
+df <- data.frame(Legend, x, y)
+
+str(df)
+```
+
+# Creating plot
+```{r}
+df %>%
+  ggplot(., aes(x, y, color = Legend))+
+  geom_point(binwidth = 1, size = 3)+
+  xlab("Time spent with them wishing I was actually alone")+
+  ylab("How much I like a person")+
+  scale_x_continuous(breaks = c(0:10))+
+  scale_y_continuous(breaks = c(0:10))+
+  scale_color_hue(h = c(180, 400))+
+  theme(text = element_text(size = 13))
+```
+
+
+
+
+
+
+
+
+
+
+
+
